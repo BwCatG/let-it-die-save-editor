@@ -736,18 +736,18 @@ function researchAll() {
 function giveAllDecals() {
   if (!save) return;
   const all = window.ALL_DECALS || [];
-  if (!confirm('Give 5 copies of every decal (' + all.length + ')?')) return;
+  if (!confirm('Give 10 copies of every decal (' + all.length + ')?')) return;
   let psskl = save.soul.skl.psskl;
   if (!Array.isArray(psskl)) psskl = save.soul.skl.psskl = [];
   const bySkl = {};
   psskl.forEach(r => bySkl[r.sklid] = r);
   const now = Math.floor(Date.now() / 1000);
   all.forEach(id => {
-    if (bySkl[id]) { bySkl[id].cnt = 5; }
-    else { const rec = { sklid: id, cnt: 5, updated: now, is_checked: 0 }; psskl.push(rec); bySkl[id] = rec; }
+    if (bySkl[id]) { bySkl[id].cnt = 10; }
+    else { const rec = { sklid: id, cnt: 10, updated: now, is_checked: 0 }; psskl.push(rec); bySkl[id] = rec; }
   });
   render();
-  toast('Gave 5 of each of ' + all.length + ' decals');
+  toast('Gave 10 of each of ' + all.length + ' decals');
 }
 function maxCurrencies() {
   if (!save) return;
